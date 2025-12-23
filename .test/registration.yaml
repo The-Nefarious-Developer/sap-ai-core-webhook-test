@@ -1,0 +1,23 @@
+apiVersion: btp.deere.com/v1
+kind: SapAiCoreRegistration
+metadata:
+  name: MFG-OPS-SD-CG-DOC-SAP
+  applicationService: MO-SAP-SD-Complete-Goods
+content:
+  spec:
+    ai-api-connection:
+      - connection-name: mfg-ops-sdcg-doc-sap
+        service-key: MFG-OPS-SDCG-DOC-SAP
+        resource-groups:
+          - resource-group-id: default
+            labels: # will have the prefix "ext.ai.sap.com/"
+              - document-grounding: "true" # Can't be removed, used by the system
+              - apm-component-name: "MO-SAP-SD-Complete-Goods"
+            configurations:
+              - configuration-name: mfg-ops-sdcg-doc-sap-gpt-4o-mini
+                scenario: foundation-models
+                version: 0.0.1
+                executable: azure-openai
+                model-name: gpt-4o-mini
+                model-version: latest
+                deployment: true # Will generate a deployment ID with an inference URL
