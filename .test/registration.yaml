@@ -20,4 +20,3 @@ content:
                 executable: azure-openai
                 model-name: gpt-4o-mini
                 model-version: latest
-                deployment: true # Will generate a deployment ID with an inference URL
